@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/color_2"
+    android:layout_margin="5dp"
+    >
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       >
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Deste Adı"
+           android:textStyle="bold"
+           android:textSize="30dp"
+           android:layout_margin="10dp"
+           android:textColor="@color/color_1"
+           android:id="@+id/deckName"/>
+       <LinearLayout
+           android:layout_margin="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:layout_below="@+id/deckName"
+           android:orientation="horizontal"
+           android:gravity="center"
+           >
+           <LinearLayout
+               android:layout_margin="5dp"
+               android:gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Toplam Soru"
+                   android:textColor="@color/color_1"
+                   android:textStyle="bold"
+                   />
+               <TextView
+                   android:id="@+id/totalQuestion"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="10"
+                   android:textColor="@color/color_1"
+                   android:textSize="20dp"
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_margin="5dp"
+               android:gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Dogru Soru"
+                   android:textColor="@color/color_1"
+                   android:textStyle="bold"
+                   />
+               <TextView
+                   android:id="@+id/trueQuestion"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="10"
+                   android:textColor="@color/color_1"
+                   android:textSize="20dp"
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_margin="5dp"
+               android:gravity="center"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Yanlış Soru"
+                   android:textColor="@color/color_1"
+                   android:textStyle="bold"
+                   />
+               <TextView
+                   android:id="@+id/falseQuestion"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="10"
+                   android:textColor="@color/color_1"
+                   android:textSize="20dp"
+                   android:textStyle="bold"
+                   />
+           </LinearLayout>
+       </LinearLayout>
+       <Button
+           android:id="@+id/button"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:background="@android:color/transparent" />
+   </RelativeLayout>
+</RelativeLayout>
