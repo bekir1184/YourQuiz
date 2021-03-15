@@ -17,10 +17,7 @@ class Main : Fragment() {
     //lateinit var addDeckTv:TextView
     lateinit var floating:View
 
-    var decks = ArrayList<Deck>()
-    var trueList = ArrayList<Question>()
-    var replyList = ArrayList<Question>()
-    var falseList = ArrayList<Question>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +30,15 @@ class Main : Fragment() {
         floating.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_main_to_addDeck)
         }
+        var decks = ArrayList<Deck>()
+        var trueList = ArrayList<Question>()
+        var replyList = ArrayList<Question>()
+        var falseList = ArrayList<Question>()
 
         decks.add(Deck(1,"Deneme",trueList ,replyList ,falseList))
         decks.add(Deck(2,"Falan",trueList ,replyList ,falseList))
         decks.add(Deck(3,"Filan",trueList ,replyList ,falseList))
-        decks.add(Deck(4,"Deneme",trueList ,replyList ,falseList))
-        decks.add(Deck(5,"Falan",trueList ,replyList ,falseList))
-        decks.add(Deck(6,"Filan",trueList ,replyList ,falseList))
+        decks.add(Deck(3,"Filan",trueList ,replyList ,falseList))
 
         val recyclerView: RecyclerView =view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager= LinearLayoutManager(context)

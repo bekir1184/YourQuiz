@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@+id/title"
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -25,8 +26,13 @@
             android:text="Deste Ekle"
             android:textColor="@color/color_2"
             android:textAllCaps="false"
-            android:gravity="end"
-            android:layout_margin="10dp"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/madelina"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_add_24"
+            app:iconTint="@color/color_2"
+
             />
 
     </RelativeLayout>

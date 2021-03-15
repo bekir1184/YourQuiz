@@ -8,21 +8,50 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
 import com.example.yourquiz.R
+import com.google.android.material.card.MaterialCardView
 
 class ShowQuestion : Fragment() {
 
-    //lateinit var deck:TextView
+    lateinit var trueBtn: View
+    lateinit var falseBtn: View
+    lateinit var showAnswerBtn: View
+    lateinit var answerCard:MaterialCardView
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*val view =inflater.inflate(R.layout.fragment_show_question, container, false)
-        deck  = view.findViewById(R.id.deck)
+        val view =inflater.inflate(R.layout.fragment_show_question, container, false)
+        trueBtn  = view.findViewById(R.id.trueBtn)
+        falseBtn = view.findViewById(R.id.falseBtn)
+        showAnswerBtn = view.findViewById(R.id.showAnswer)
+        answerCard = view.findViewById(R.id.answerCard)
+        showQues()
 
-        deck.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_showQuestion_to_deck)
-        }*/
+        showAnswerBtn.setOnClickListener {
+            showAnswer()
+        }
+        trueBtn.setOnClickListener {
+            showQues()
+        }
+        falseBtn.setOnClickListener {
+            showQues()
+        }
+
         return view
+    }
+    fun showAnswer(){
+        showAnswerBtn.setVisibility(View.INVISIBLE)
+        trueBtn.setVisibility(View.VISIBLE)
+        falseBtn.setVisibility(View.VISIBLE)
+        answerCard.setVisibility(View.VISIBLE)
+    }
+    fun showQues(){
+        showAnswerBtn.setVisibility(View.VISIBLE)
+        trueBtn.setVisibility(View.INVISIBLE)
+        falseBtn.setVisibility(View.INVISIBLE)
+        answerCard.setVisibility(View.INVISIBLE)
     }
 
 

@@ -17,7 +17,8 @@ class AddQuestion : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*val view =inflater.inflate(R.layout.fragment_add_question, container, false)
+        val view =inflater.inflate(R.layout.fragment_add_question, container, false)
+        /*
         deck = view.findViewById(R.id.deck)
         deck.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_addQuestion_to_deck)

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_1"
     tools:context="screens.ShowQuestion">
 
@@ -10,28 +11,197 @@
         android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/title"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_2"
-            android:textSize="80dp"
-            android:text="Show Question"
-            android:gravity="center"
-            />
-        <TextView
-            android:id="@+id/deck"
+            app:cardCornerRadius="10dp"
+            android:id="@+id/questionCard"
+            app:cardBackgroundColor="@color/color_2"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/color_1"
+                    android:layout_margin="10dp"
+                    android:id="@+id/questionNo"
+                    >
+                    <TextView
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="30dp"
+                        android:textColor="@color/color_2"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/madelina"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/color_1"
+                    android:layout_margin="10dp"
+                    android:id="@+id/title"
+                    >
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Soru"
+                        android:textSize="30dp"
+                        android:textColor="@color/color_2"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/madelina"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/color_1"
+                    android:layout_margin="10dp"
+                    android:id="@+id/question"
+                    android:layout_below="@id/title"
+                    >
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Falan filan burda soru olacak "
+                        android:textSize="30dp"
+                        android:textColor="@color/color_2"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/madelina"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/questionCard"
+            android:id="@+id/answerCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/color_2"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/color_1"
+                    android:layout_margin="10dp"
+                    android:id="@+id/answerNo"
+                    >
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/color_1"
+                    android:layout_margin="10dp"
+                    android:id="@+id/answerTitle"
+                    >
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cevap"
+                        android:textSize="30dp"
+                        android:textColor="@color/color_2"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/madelina"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/color_1"
+                    android:layout_margin="10dp"
+                    android:id="@+id/answer"
+                    android:layout_below="@id/answerTitle"
+                    >
+                    <TextView
+                        android:padding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Falan filan burda cevap olacak "
+                        android:textSize="30dp"
+                        android:textColor="@color/color_2"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/madelina"
+                        />
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/showAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_3"
-            android:textSize="40dp"
-            android:text="Deck"
+            android:layout_below="@+id/answerCard"
+            android:layout_centerHorizontal="true"
+            android:text="Cevabı Göster"
+            android:textColor="@color/color_2"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/madelina"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_sticky_note_2_24"
+            app:iconTint="@color/color_2"
+            />
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/trueBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:text="Bildim"
+            android:textColor="@color/color_2"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/madelina"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_done_24"
+            app:iconTint="@color/color_2"
             />
-
-
-
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/falseBtn"
+            android:backgroundTint="@color/color_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:text="Bilemedim"
+            android:textColor="@color/color_3"
+            android:textAllCaps="false"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/madelina"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_baseline_clear_24"
+            app:iconTint="@color/color_3"
+            />
     </RelativeLayout>
 
 </FrameLayout>
