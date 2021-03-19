@@ -10,13 +10,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yourquiz.R
 import com.example.yourquiz.adapter.DeckAdapter
-import com.example.yourquiz.model.Deck
-import com.example.yourquiz.model.Question
+import com.example.yourquiz.model.DeckModel
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.File
 
 class Main : Fragment() {
     //lateinit var addDeckTv:TextView
     lateinit var floating:View
-
+    var decks = ArrayList<DeckModel>()
 
 
     override fun onCreateView(
@@ -28,17 +30,12 @@ class Main : Fragment() {
         floating = view.findViewById(R.id.floating)
 
         floating.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_main_to_addDeck)
+            var action = MainDirections.actionMainToAddDeck()
+            Navigation.findNavController(view).navigate(action)
         }
-        var decks = ArrayList<Deck>()
-        var trueList = ArrayList<Question>()
-        var replyList = ArrayList<Question>()
-        var falseList = ArrayList<Question>()
 
-        decks.add(Deck(1,"Deneme",trueList ,replyList ,falseList))
-        decks.add(Deck(2,"Falan",trueList ,replyList ,falseList))
-        decks.add(Deck(3,"Filan",trueList ,replyList ,falseList))
-        decks.add(Deck(3,"Filan",trueList ,replyList ,falseList))
+
+        getHabits()
 
         val recyclerView: RecyclerView =view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager= LinearLayoutManager(context)
@@ -46,6 +43,25 @@ class Main : Fragment() {
 
 
         return view
+    }
+    private fun getJsonData():String?{
+        val fileName = requireContext().cacheDir.absolutePath+"/DeckJson.json"
+        val jsonString:String
+        try {
+            jsonString = File(fileName).bufferedReader().use { it.readText() }
+        }catch (ex:Exception){
+            ex.printStackTrace()
+            return null
+        }
+        return jsonString
+    }
+    private fun getHabits(){
+        if(getJsonData()!=null){
+            val jsonFileString = getJsonData()
+            val gson = Gson()
+            val listDeckType = object : TypeToken<ArrayList<DeckModel>>() {}.type
+            decks=gson.fromJson(jsonFileString,listDeckType)
+        }
     }
 
 

@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:text="Ekle"
             android:textAllCaps="false"
-            android:id="@+id/addDeckBtn"/>
+            android:id="@+id/addQuestionBtn"/>
     </RelativeLayout>
 
 </FrameLayout>

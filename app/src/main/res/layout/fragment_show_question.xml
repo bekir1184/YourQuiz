@@ -11,7 +11,20 @@
         android:padding="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/listName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Liste Adı"
+            android:textStyle="bold"
+            android:fontFamily="@font/madelina"
+            android:textColor="@color/black"
+            android:textSize="40dp"
+            android:layout_margin="10dp"
+            />
+
         <com.google.android.material.card.MaterialCardView
+            android:layout_below="@+id/listName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.example.yourquiz.R
 import com.google.android.material.card.MaterialCardView
 
@@ -16,7 +17,8 @@ class ShowQuestion : Fragment() {
     lateinit var falseBtn: View
     lateinit var showAnswerBtn: View
     lateinit var answerCard:MaterialCardView
-
+    lateinit var listNameTV:TextView
+    val args:ShowQuestionArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +29,11 @@ class ShowQuestion : Fragment() {
         falseBtn = view.findViewById(R.id.falseBtn)
         showAnswerBtn = view.findViewById(R.id.showAnswer)
         answerCard = view.findViewById(R.id.answerCard)
+        listNameTV = view.findViewById(R.id.listName)
         showQues()
+
+        val listName = args.listName
+        listNameTV.setText(listName)
 
         showAnswerBtn.setOnClickListener {
             showAnswer()

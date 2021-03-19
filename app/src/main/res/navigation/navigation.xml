@@ -31,9 +31,13 @@
             android:id="@+id/action_deck_to_addQuestion"
             app:destination="@id/addQuestion" />
         <argument
-            android:name="listName"
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="deckName"
             app:argType="string"
-            android:defaultValue="Liste" />
+            />
+
     </fragment>
     <fragment
         android:id="@+id/showQuestion"
@@ -44,6 +48,12 @@
             android:id="@+id/action_showQuestion_to_deck"
             app:destination="@id/deck"
             app:popUpToInclusive="false" />
+
+
+        <argument
+            android:name="listName"
+            app:argType="string"
+            android:defaultValue="Liste" />
     </fragment>
     <fragment
         android:id="@+id/addQuestion"
@@ -54,6 +64,9 @@
             android:id="@+id/action_addQuestion_to_deck"
             app:destination="@id/deck"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/addDeck"
