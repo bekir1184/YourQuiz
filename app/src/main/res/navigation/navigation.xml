@@ -54,6 +54,9 @@
             android:name="listName"
             app:argType="string"
             android:defaultValue="Liste" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/addQuestion"

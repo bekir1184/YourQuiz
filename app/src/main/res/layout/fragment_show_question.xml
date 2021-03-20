@@ -42,9 +42,10 @@
                     app:cardCornerRadius="10dp"
                     app:cardBackgroundColor="@color/color_1"
                     android:layout_margin="10dp"
-                    android:id="@+id/questionNo"
+                    android:id="@+id/questionNoCard"
                     >
                     <TextView
+                        android:id="@+id/questionNo"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:paddingLeft="20dp"
@@ -83,10 +84,10 @@
                     app:cardCornerRadius="10dp"
                     app:cardBackgroundColor="@color/color_1"
                     android:layout_margin="10dp"
-                    android:id="@+id/question"
                     android:layout_below="@id/title"
                     >
                     <TextView
+                        android:id="@+id/question"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -114,16 +115,6 @@
                 android:layout_height="wrap_content"
                 >
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_alignParentEnd="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="10dp"
-                    app:cardBackgroundColor="@color/color_1"
-                    android:layout_margin="10dp"
-                    android:id="@+id/answerNo"
-                    >
-                </com.google.android.material.card.MaterialCardView>
-                <com.google.android.material.card.MaterialCardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="10dp"
@@ -148,10 +139,10 @@
                     app:cardCornerRadius="10dp"
                     app:cardBackgroundColor="@color/color_1"
                     android:layout_margin="10dp"
-                    android:id="@+id/answer"
                     android:layout_below="@id/answerTitle"
                     >
                     <TextView
+                        android:id="@+id/answer"
                         android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -167,10 +158,10 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_alignParentBottom="true"
             android:id="@+id/showAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/answerCard"
             android:layout_centerHorizontal="true"
             android:text="Cevabı Göster"
             android:textColor="@color/color_2"

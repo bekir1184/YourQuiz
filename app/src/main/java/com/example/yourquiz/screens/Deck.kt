@@ -7,12 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.NavArgs
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.yourquiz.R
 import com.example.yourquiz.model.DeckModel
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
@@ -28,6 +30,7 @@ class Deck : Fragment() {
     lateinit var trueListSize:TextView
     lateinit var falseListSize:TextView
     lateinit var deckName:TextView
+    var listSize  = 0
     var deckList=ArrayList<DeckModel>()
 
     val args:DeckArgs by navArgs()
@@ -49,7 +52,7 @@ class Deck : Fragment() {
         falseListSize = view.findViewById(R.id.falseListSize)
 
         deckName.setText(args.deckName)
-        getHabits()
+        getDecks()
         var rlSize=deckList.get(args.id).replyList.size
         var tSize=deckList.get(args.id).trueList.size
         var fSize=deckList.get(args.id).falseList.size
@@ -78,9 +81,14 @@ class Deck : Fragment() {
         }
         showQuestion.setOnClickListener {
 
-            val action = DeckDirections.actionDeckToShowQuestion()
+            val action = DeckDirections.actionDeckToShowQuestion(args.id)
             action.listName=selectedList
-            Navigation.findNavController(view).navigate(action)
+            selectedListFun(selectedList)
+            if(listSize>0){
+                Navigation.findNavController(view).navigate(action)
+            }else{
+
+            }
         }
         addQuestion.setOnClickListener {
             val action = DeckDirections.actionDeckToAddQuestion(args.id)
@@ -88,6 +96,19 @@ class Deck : Fragment() {
         }
 
         return view
+    }
+    fun selectedListFun(name:String){
+        when(name){
+            "Tekrar Listesi" -> {
+                listSize = deckList.get(args.id).replyList.size
+            }
+            "Doğru Listesi"  -> {
+                listSize = deckList.get(args.id).trueList.size
+            }
+            else -> {
+                listSize = deckList.get(args.id).falseList.size
+            }
+        }
     }
     private fun getJsonData():String?{
         val fileName = requireContext().cacheDir.absolutePath+"/DeckJson.json"
@@ -100,7 +121,7 @@ class Deck : Fragment() {
         }
         return jsonString
     }
-    private fun getHabits(){
+    private fun getDecks(){
         if(getJsonData()!=null){
             val jsonFileString = getJsonData()
             val gson = Gson()
