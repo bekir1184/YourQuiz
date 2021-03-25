@@ -1,6 +1,5 @@
 # YourQuiz
 
-[![Build with android](https://forthebadge.com/images/badges/built-for-android.svg)](https://www.android.com/)
 
 An application where you can create your own quizzes.
 
