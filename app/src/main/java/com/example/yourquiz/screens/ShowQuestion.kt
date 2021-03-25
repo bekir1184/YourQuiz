@@ -33,7 +33,7 @@ class ShowQuestion : Fragment() {
     val args:ShowQuestionArgs by navArgs()
     var list = ArrayList<Question>()
     var listNo = 0
-
+    var questionNo=0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,21 +59,30 @@ class ShowQuestion : Fragment() {
             showAnswer()
         }
         trueBtn.setOnClickListener {
+            trueAnswer(list.get(questionNo),questionNo)
             showQues()
-            trueAnswer()
         }
         falseBtn.setOnClickListener {
+            falseAnswer(list.get(questionNo),questionNo)
             showQues()
-            falseAnswer()
         }
-
         return rootView
     }
-    fun trueAnswer(){
-
+    fun trueAnswer(sendQuestion: Question,i:Int){
+        println("$sendQuestion -->  $i ")
+        deckList[args.id].trueList.add(sendQuestion)
+        list.removeAt(i)
+        listNo--
+        listSize--
+        writeJSONFile(deckList)
     }
-    fun falseAnswer(){
-
+    fun falseAnswer(sendQuestion: Question,i:Int){
+        println("$sendQuestion -->  $i ")
+        deckList[args.id].falseList.add(sendQuestion)
+        list.removeAt(i)
+        listNo--
+        listSize--
+        writeJSONFile(deckList)
     }
     fun selectedList(name:String){
         when(name){
@@ -107,8 +116,8 @@ class ShowQuestion : Fragment() {
         }else{
             var action = ShowQuestionDirections.actionShowQuestionToDeck(args.id, deckList.get(args.id).deckName)
             Navigation.findNavController(rootView).navigate(action)
+            writeJSONFile(deckList)
         }
-
     }
     fun showQuestionItem(i:Int){
         var question = list.get(i).question
@@ -117,6 +126,7 @@ class ShowQuestion : Fragment() {
         answerTW.setText(answer)
         questionNoTW.setText((i+1).toString())
     }
+
     private fun getJsonData():String?{
         val fileName = requireContext().cacheDir.absolutePath+"/DeckJson.json"
         val jsonString:String
@@ -135,6 +145,13 @@ class ShowQuestion : Fragment() {
             val listDeckType = object : TypeToken<ArrayList<DeckModel>>() {}.type
             deckList=gson.fromJson(jsonFileString,listDeckType)
         }
+    }
+    private fun writeJSONFile(deckModel: List<DeckModel>){
+        val fileName = requireContext().cacheDir.absolutePath+"/DeckJson.json"
+        var gson = Gson()
+        var jsonString:String=gson.toJson(deckModel)
+        val file = File(fileName)
+        file.writeText(jsonString)
     }
 
 

@@ -29,9 +29,9 @@ class AddDeck : Fragment() {
         deckName  = view.findViewById(R.id.deckNameET)
         getHabits()
         addDeckBtn.setOnClickListener {
-            val replyList = ArrayList<Question>()
-            val trueList = ArrayList<Question>()
-            val falseList = ArrayList<Question>()
+            var replyList = ArrayList<Question>()
+            var trueList = ArrayList<Question>()
+            var falseList = ArrayList<Question>()
             val name = deckName.text.toString()
             deckList.add(DeckModel(deckList.size,name,replyList,trueList,falseList))
             writeJSONFile(deckList)

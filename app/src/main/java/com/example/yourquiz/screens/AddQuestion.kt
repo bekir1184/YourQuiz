@@ -39,10 +39,13 @@ class AddQuestion : Fragment() {
 
         addBtn.setOnClickListener {
             getHabits()
+
             var questionID=deckList.get(args.id).replyList.size
             var question = Question(questionID,questionET.text.toString(),answerET.text.toString())
             deckList.get(args.id).replyList.add(question)
             writeJSONFile(deckList)
+            questionET.setText("")
+            answerET.setText("")
 
         }
         return view
